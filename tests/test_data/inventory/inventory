@@ -1,0 +1,17 @@
+server1 inventory_test_variable="from_inventory_server1"
+server2
+server3
+server4
+
+[groupA]
+server1
+server2
+
+[groupB]
+server3
+
+[groupA:vars]
+inventory_test_variable = from_inventory_groupA
+
+[all:vars]
+inventory_test_variable = from_inventory_all

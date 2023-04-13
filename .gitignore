@@ -1,0 +1,55 @@
+# build products...
+*.py[co]
+build
+AUTHORS.TXT
+# Emacs backup and autosave files...
+*~
+.\#*
+\#*
+# RPM stuff...
+MANIFEST
+dist
+rpm-build
+# Eclipse/PyDev stuff...
+.project
+.pydevproject
+# PyCharm stuff...
+.idea
+#IntelliJ IDEA stuff..
+*.iml
+#VSCode stuff..
+.vscode/
+# Mac OS X stuff...
+.DS_Store
+# Vim swap files
+*.swp
+*.swo
+[._]*.un~
+credentials.yml
+# test output
+*.retry
+*.out
+.pytest_cache/
+.tox
+.cache
+.pytest_cache
+results.xml
+coverage.xml
+# Development
+/test/develop
+lib/ansible_variables.egg-info
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+venv
+env
+/.cache/
+# default 'coverage html' results
+htmlcov/
+# default 'coverage' tool data
+.coverage

@@ -1,0 +1,3 @@
+---
+from_all: hello
+test: from_all

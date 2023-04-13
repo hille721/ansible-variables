@@ -1,0 +1,4 @@
+# for now only be used for black config
+# maybe in the future we will use it instead of setup.py / setup.cfg
+[tool.black]
+line-length = 120
