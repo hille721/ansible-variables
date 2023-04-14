@@ -81,9 +81,7 @@ As as result, the output of `ansible-variables` can be fully trusted as it uses 
 
 ## Credits
 
-I would like to thank the termshot project for their excellent tool that allowed me to easily create the screenshots used in this README.md file.
-
-If you're interested in learning more about the termshot project, you can visit their website at <https://termshot.app/> or check out their GitHub repository at <https://github.com/nickolasburr/termshot>.
+I would like to thank the [termshot](https://github.com/homeport/termshot) project for their excellent tool that allowed me to easily create the screenshots used in this README.md file.
 
 ## License
 
