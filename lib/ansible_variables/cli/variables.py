@@ -8,7 +8,7 @@ from ansible.cli.arguments import option_helpers as opt_help
 from ansible.errors import AnsibleOptionsError
 from ansible.utils.display import Display
 
-from ansible_variables.utils.vars import variable_sources, source_mapping
+from ansible_variables.utils.vars import variable_sources
 
 display = Display()
 
@@ -108,9 +108,9 @@ class VariablesCLI(CLI):
             var=context.CLIARGS["variable"],
             verbosity=context.CLIARGS["verbosity"],
         ):
-            if variable["name"] not in INTERNAL_VARS:
+            if variable.name not in INTERNAL_VARS:
                 rich.print(
-                    f"[bold]{variable['name']}[/bold]: {variable['value']} - [italic]{source_mapping(variable['source'])}[/italic]"
+                    f"[bold]{variable.name}[/bold]: {variable.value} - [italic]{variable.source_mapped}[/italic]"
                 )
 
 
