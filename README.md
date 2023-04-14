@@ -34,35 +34,18 @@ ansible-variables --help
 The basic usage is pretty simple, you only need to pass the Ansible hostname to it:
 
 ```plain
-ansible-variables server1
+ansible-variables mywebserver
 ```
 
 This results in following simple rich formatted output
+![command_simple](https://github.com/hille721/ansible-variables/raw/main/docs/img/command_simple.png)
 
-```plain
-inventory_test_variable: from_inventory_all - inventory file or script group vars/all
-remote_user: myremoteuser - inventory file or script group vars
-from_all: hello - inventory group_vars/all
-operating_system: rhel8 - inventory group_vars/*
-foo: bar - inventory host_vars/*
-```
 
 The vervosity can be increased Ansible like with `-v`, `-vvv`, ...
 
 With `-v` the inventory files where the variable is defined, will be printed. The last file wins.
 
-```plain
-inventory_test_variable: from_inventory_all - inventory file or script group vars/all
-remote_user: myremoteuser - inventory file or script group vars
-/home/hille/gitrepos/ansible-variables/tests/test_data/inventory/group_vars/all
-test: from_all - inventory group_vars/all
-/home/hille/gitrepos/ansible-variables/tests/test_data/inventory/group_vars/all
-foo: bar - inventory host_vars/*
-/home/hille/gitrepos/ansible-variables/tests/test_data/inventory/group_vars/webservers.yml
-/home/hille/gitrepos/ansible-variables/tests/test_data/inventory/host_vars/mywebserver.yml
-operating_system: rhel8 - inventory group_vars/*
-/home/hille/gitrepos/ansible-variables/tests/test_data/inventory/group_vars/webservers.yml
-```
+![command_simple_verbose](https://github.com/hille721/ansible-variables/raw/main/docs/img/command_simple_verbose.png)
 
 With `-vvv` it will also print all files which were considered to look for the variable.
 
@@ -96,3 +79,13 @@ As as result, the output of `ansible-variables` can be fully trusted as it uses 
 ## Limitations
 
 * as written in the description, this tool shows only host context varialbe and there does not know anything about playbook or role variables or command line options.
+
+## Credits
+
+I would like to thank the termshot project for their excellent tool that allowed me to easily create the screenshots used in this README.md file.
+
+If you're interested in learning more about the termshot project, you can visit their website at <https://termshot.app/> or check out their GitHub repository at <https://github.com/nickolasburr/termshot>.
+
+## License
+
+This project is licensed under the [GNU General Public License v3.0](https://github.com/hille721/ansible-variables/blob/main/LICENSE)
