@@ -39,7 +39,7 @@ def test_init_variable_source():
     )
 
     assert var_source.files == ["/foo/bar", "/foo/bar.yml", "/FOO/BAR2"]
-    assert var_source.source_mapped == "host variable defined in inventory"
+    assert var_source.source_mapped == "inventory file or script host vars"
     with pytest.raises(AnsibleFileNotFound):
         var_source.file_occurrences(loader=loader)
 

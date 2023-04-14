@@ -30,4 +30,4 @@ def test_cli_from_all(capsys):
         variables_cli = VariablesCLI(["ansible-variables", server, "--var", "from_all"])
         variables_cli.run()
         captured = capsys.readouterr()
-        assert "from_all: hello - group_vars (all)" == captured.out.strip()
+        assert "from_all: hello - inventory group_vars/all" == captured.out.strip()

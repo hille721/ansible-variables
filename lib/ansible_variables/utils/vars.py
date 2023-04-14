@@ -28,17 +28,17 @@ class VariableSource:
 
         source_map = {
             # host variable in inventory
-            "host vars for": "host variable defined in inventory",
+            "host vars for": "inventory file or script host vars",
             # group variable in inventory
-            "group vars, precedence entry 'groups_inventory'": "group variable defined in inventory",
+            "group vars, precedence entry 'groups_inventory'": "inventory file or script group vars",
             # group variable all in inventory
-            "group vars, precedence entry 'all_inventory'": "group variable definined in inventory (all)",
+            "group vars, precedence entry 'all_inventory'": "inventory file or script group vars/all",
             # host_vars
-            "inventory host_vars for": "host_vars",
+            "inventory host_vars for": "inventory host_vars/*",
             # group_vars
-            "group vars, precedence entry 'groups_plugins_inventory'": "group_vars",
+            "group vars, precedence entry 'groups_plugins_inventory'": "inventory group_vars/*",
             # group_vars all
-            "group vars, precedence entry 'all_plugins_inventory'": "group_vars (all)",
+            "group vars, precedence entry 'all_plugins_inventory'": "inventory group_vars/all",
         }
 
         for key, value in source_map.items():
@@ -69,7 +69,6 @@ class VariableSource:
         if not self.debuglog:
             return files
 
-        print(self.debuglog.splitlines())
         for line in self.debuglog.splitlines():
             found = re.search(r"Loading data from ([^\s]*)", self.escape_ansi(line))
             if found:

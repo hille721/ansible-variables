@@ -2,6 +2,7 @@ server1 inventory_test_variable="from_inventory_server1"
 server2
 server3
 server4
+mywebserver
 
 [groupA]
 server1
@@ -10,8 +11,14 @@ server2
 [groupB]
 server3
 
+[webservers]
+mywebserver
+
 [groupA:vars]
 inventory_test_variable = from_inventory_groupA
+
+[webservers:vars]
+remote_user = myremoteuser
 
 [all:vars]
 inventory_test_variable = from_inventory_all
