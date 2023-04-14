@@ -22,7 +22,7 @@ def test_cli_config(capsys):
     variables_cli = VariablesCLI(["ansible-variables", "--version"])
     with pytest.raises(SystemExit):
         variables_cli.run()
-    assert C.CONFIG_FILE in capsys.readouterr().out.splitlines()[1]
+    assert "tests/test_data/ansible.cfg" in capsys.readouterr().out.splitlines()[1]
 
 
 def test_cli_from_all(capsys):

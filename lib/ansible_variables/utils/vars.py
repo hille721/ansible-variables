@@ -7,29 +7,32 @@ from ansible.utils.display import Display
 display = Display()
 
 
-def variable_sources(vm, host, var=None, verbosity=0):
+def variable_sources(variable_manager, host, var=None, verbosity=0):
     """get vars with sources
 
     Returns
+        [{"name": NAME, "value": VALUE, "source": SOURCE, "files": FILES}]
 
-        [(name, value, source)]
+
     """
-
     C.DEFAULT_DEBUG = True
     # we are catching the debug messages here
-    f = io.StringIO()
-    with contextlib.redirect_stdout(f):
-        hostvars = vm.get_vars(host=host)
-    output = f.getvalue()
+    fileio = io.StringIO()
+    with contextlib.redirect_stdout(fileio):
+        hostvars = variable_manager.get_vars(host=host)
+    output = fileio.getvalue()
     # let's print the output again if the verbosity is high enough
     if verbosity >= 3:
         display.debug(output)
     C.DEFAULT_DEBUG = False
 
     if not var:
-        return [(var, hostvars.data.get(var), source) for var, source in hostvars.sources.items()]
+        return [
+            {"name": var, "value": hostvars.data.get(var), "source": source, "files": []}
+            for var, source in hostvars.sources.items()
+        ]
 
-    return [(var, hostvars.data.get(var), hostvars.sources.get(var))]
+    return [{"name": var, "value": hostvars.data.get(var), "source": hostvars.sources.get(var), "files": []}]
 
 
 def source_mapping(source):
