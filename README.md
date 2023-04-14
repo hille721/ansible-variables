@@ -40,8 +40,7 @@ ansible-variables mywebserver
 This results in following simple rich formatted output
 ![command_simple](https://github.com/hille721/ansible-variables/raw/main/docs/img/command_simple.png)
 
-
-The vervosity can be increased Ansible like with `-v`, `-vvv`, ...
+The verbosity can be increased Ansible like with `-v`, `-vvv`, ...
 
 With `-v` the inventory files where the variable is defined, will be printed. The last file wins.
 
@@ -78,7 +77,7 @@ As as result, the output of `ansible-variables` can be fully trusted as it uses 
 
 ## Limitations
 
-* as written in the description, this tool shows only host context varialbe and there does not know anything about playbook or role variables or command line options.
+* as written in the description, this tool only shows host context variables and does not know anything about playbook or role variables or command line options.
 
 ## Credits
 
