@@ -3,7 +3,7 @@
 # ansible-variables
 
 The Ansible inventory provides a very powerful framework to declare variables in a hierarchical manner.
-There a lof of differnt places where a variable can be definied (inventory, host_vars, groups_vars, ...) and Ansible will merge them in a specific order ("variable precedence" - <https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_variables.html#understanding-variable-precedence>).
+There a lof of differnt places where a variable can be definied (inventory, host_vars, groups_vars, ...) and Ansible will merge them in a specific order ([variable precedence](https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_variables.html#understanding-variable-precedence)).
 
 `ansible-variables` will help to keep track of your host context variables:
 
