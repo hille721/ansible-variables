@@ -97,6 +97,7 @@ class VariablesCLI(CLI):
 
         # Initialize needed objects
         self.loader, self.inventory, self.vm = self._play_prereqs()
+        verbosity = context.CLIARGS["verbosity"]
 
         host = self.inventory.get_host(context.CLIARGS["host"])
         if not host:
@@ -106,12 +107,15 @@ class VariablesCLI(CLI):
             variable_manager=self.vm,
             host=host,
             var=context.CLIARGS["variable"],
-            verbosity=context.CLIARGS["verbosity"],
         ):
             if variable.name not in INTERNAL_VARS:
                 rich.print(
                     f"[bold]{variable.name}[/bold]: {variable.value} - [italic]{variable.source_mapped}[/italic]"
                 )
+                if verbosity >= 1:
+                    files = variable.file_occurrences(loader=self.loader)
+                    for ffile in files:
+                        rich.print(ffile)
 
 
 def main(args=None):
