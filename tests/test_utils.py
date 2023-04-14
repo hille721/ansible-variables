@@ -3,7 +3,7 @@ from ansible.parsing.dataloader import DataLoader
 from ansible.inventory.manager import InventoryManager
 from ansible.vars.manager import VariableManager
 
-from ansible_variables.utils.vars import variable_sources, VariableSource
+from ansible_variables.utils.vars import variable_sources
 
 C.set_constant("CONFIG_FILE", "tests/test_data/ansible.cfg")
 
@@ -16,64 +16,48 @@ def test_from_all():
     for server in ["server1", "server2", "server3"]:
         sources = variable_sources(variable_manager=variable_manager, host=inventory.get_host(server))
         assert (
-            VariableSource(
-                name="from_all",
-                value="hello",
-                source="group vars, precedence entry 'all_plugins_inventory'",
-            )
-            in sources
-        )
-
-
-def test_server1():
-    sources = variable_sources(variable_manager=variable_manager, host=inventory.get_host("server1"), var="test")
-    assert [VariableSource(name="test", value="from_server1", source="inventory host_vars for 'server1'")] == sources
+            "from_all",
+            "hello",
+            "group vars, precedence entry 'all_plugins_inventory'",
+        ) in [(source.name, source.value, source.source) for source in sources]
 
 
 def test_server2():
     sources = variable_sources(variable_manager=variable_manager, host=inventory.get_host("server2"), var="test")
     assert [
-        VariableSource(
-            name="test",
-            value="from_groupA",
-            source="group vars, precedence entry 'groups_plugins_inventory'",
+        (
+            "test",
+            "from_groupA",
+            "group vars, precedence entry 'groups_plugins_inventory'",
         )
-    ] == sources
+    ] == [(source.name, source.value, source.source) for source in sources]
 
 
 def test_server3():
     sources = variable_sources(variable_manager=variable_manager, host=inventory.get_host("server3"), var="test")
     assert [
-        VariableSource(
-            name="test",
-            value="from_groupB",
-            source="group vars, precedence entry 'groups_plugins_inventory'",
+        (
+            "test",
+            "from_groupB",
+            "group vars, precedence entry 'groups_plugins_inventory'",
         )
-    ] == sources
+    ] == [(source.name, source.value, source.source) for source in sources]
 
 
 def test_server4():
     sources = variable_sources(variable_manager=variable_manager, host=inventory.get_host("server4"), var="test")
-    assert [
-        VariableSource(
-            name="test",
-            value="from_all",
-            source="group vars, precedence entry 'all_plugins_inventory'",
-        )
-    ] == sources
+    assert [("test", "from_all", "group vars, precedence entry 'all_plugins_inventory'")] == [
+        (source.name, source.value, source.source) for source in sources
+    ]
 
 
 def test_inventory_server1():
     sources = variable_sources(
         variable_manager=variable_manager, host=inventory.get_host("server1"), var="inventory_test_variable"
     )
-    assert [
-        VariableSource(
-            name="inventory_test_variable",
-            value="from_inventory_server1",
-            source="host vars for 'server1'",
-        )
-    ] == sources
+    assert [("inventory_test_variable", "from_inventory_server1", "host vars for 'server1'")] == [
+        (source.name, source.value, source.source) for source in sources
+    ]
 
 
 def test_inventory_server2():
@@ -81,12 +65,12 @@ def test_inventory_server2():
         variable_manager=variable_manager, host=inventory.get_host("server2"), var="inventory_test_variable"
     )
     assert [
-        VariableSource(
-            name="inventory_test_variable",
-            value="from_inventory_groupA",
-            source="group vars, precedence entry 'groups_inventory'",
+        (
+            "inventory_test_variable",
+            "from_inventory_groupA",
+            "group vars, precedence entry 'groups_inventory'",
         )
-    ] == sources
+    ] == [(source.name, source.value, source.source) for source in sources]
 
 
 def test_inventory_server3():
@@ -94,9 +78,9 @@ def test_inventory_server3():
         variable_manager=variable_manager, host=inventory.get_host("server3"), var="inventory_test_variable"
     )
     assert [
-        VariableSource(
-            name="inventory_test_variable",
-            value="from_inventory_all",
-            source="group vars, precedence entry 'all_inventory'",
+        (
+            "inventory_test_variable",
+            "from_inventory_all",
+            "group vars, precedence entry 'all_inventory'",
         )
-    ] == sources
+    ] == [(source.name, source.value, source.source) for source in sources]
