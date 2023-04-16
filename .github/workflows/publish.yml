@@ -16,6 +16,7 @@ jobs:
     steps:
       # release please
       - uses: google-github-actions/release-please-action@v3
+        id: release
         with:
           release-type: python
           package-name: ansible-variables
