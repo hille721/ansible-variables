@@ -1,9 +1,10 @@
-[![PyPI version](https://badge.fury.io/py/ansible-variables.svg)](https://badge.fury.io/py/ansible-variables)
-
 # ansible-variables
 
+[![PyPI version][pypi-version]][pypi-link]
+[![PyPI platforms][pypi-platforms]][pypi-link]
+
 The Ansible inventory provides a very powerful framework to declare variables in a hierarchical manner.
-There a lof of differnt places where a variable can be definied (inventory, host_vars, groups_vars, ...) and Ansible will merge them in a specific order ([variable precedence](https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_variables.html#understanding-variable-precedence)).
+There a lof of different places where a variable can be defined (inventory, host_vars, groups_vars, ...) and Ansible will merge them in a specific order ([variable precedence](https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_variables.html#understanding-variable-precedence)).
 
 `ansible-variables` will help to keep track of your host context variables:
 
@@ -13,7 +14,7 @@ There a lof of differnt places where a variable can be definied (inventory, host
 * inventory file or script host vars
 * inventory host_vars/*
 
-Based on one host it will retun a list with all variables, values and variable type.
+Based on one host it will return a list with all variables, values and variable type.
 
 ## Installation
 
@@ -23,7 +24,7 @@ pip install ansible-variables
 
 ## Usage
 
-The command line usage is simmilar to the official Ansible CLI tools, especially like ansible-inventory, thus to see all possible commands and options run
+The command line usage is similar to the official Ansible CLI tools, especially like ansible-inventory, thus to see all possible commands and options run
 
 ```plain
 ansible-variables --help
@@ -60,7 +61,7 @@ Same es above, the verbosity can also increase here.
 
 ### More customization
 
-With `--help` you will see which furhter arguments are possible, e.g. you can set the path to your inventory with `-i`
+With `--help` you will see which further arguments are possible, e.g. you can set the path to your inventory with `-i`
 
 ```plain
 ansible-variables mywebserver -i /path/to/inventory
@@ -69,7 +70,7 @@ ansible-variables mywebserver -i /path/to/inventory
 ## Implementation
 
 This tool is tightly coupled to the Ansible library (`ansible-core`) and simple reuses what is already there.
-The whole structure and implemntation was inspired and oriented by the implementation of [`ansible-inventory`](https://github.com/ansible/ansible/blob/devel/lib/ansible/cli/inventory.py).
+The whole structure and implementation was inspired and oriented by the implementation of [`ansible-inventory`](https://github.com/ansible/ansible/blob/devel/lib/ansible/cli/inventory.py).
 
 To get the source and the inventory files in which Ansible will look for a variable, we are using a [debug flag](https://github.com/ansible/ansible/blob/devel/lib/ansible/vars/manager.py#L187) in Ansible's `get_vars` method.
 
@@ -81,8 +82,12 @@ As as result, the output of `ansible-variables` can be fully trusted as it uses 
 
 ## Credits
 
-I would like to thank the [termshot](https://github.com/homeport/termshot) project for their excellent tool that allowed me to easily create the screenshots used in this README.md file.
+* the screenshots used  in this README where created with [termshot](https://github.com/homeport/termshot)
 
 ## License
 
 This project is licensed under the [GNU General Public License v3.0](https://github.com/hille721/ansible-variables/blob/main/LICENSE)
+
+[pypi-link]:                https://pypi.org/project/ansible-variables/
+[pypi-platforms]:           https://img.shields.io/pypi/pyversions/ansible-variables
+[pypi-version]:             https://badge.fury.io/py/ansible-variables.svg
