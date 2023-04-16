@@ -41,7 +41,7 @@ INTERNAL_VARS = frozenset(
 
 
 class VariablesCLI(CLI):
-    """used to display from where a variable value is comming from"""
+    """used to display from where a variable value is coming from"""
 
     name = "ansible-variables"
 
