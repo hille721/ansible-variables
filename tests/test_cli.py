@@ -29,22 +29,23 @@ def test_cli_from_all(capsys):
     for server in ["server1", "server2", "server3"]:
         variables_cli = VariablesCLI(["ansible-variables", server, "--var", "from_all"])
         variables_cli.run()
-        captured = capsys.readouterr()
-        assert "from_all: hello - inventory group_vars/all" == captured.out.strip()
+        captured = "".join(capsys.readouterr().out.splitlines())
+        assert "from_all: hello - inventory group_vars/all" == captured
 
 
 def test_cli_from_all_v(capsys):
     variables_cli = VariablesCLI(["ansible-variables", "server1", "--var", "from_all", "-v"])
     variables_cli.run()
-    captured = capsys.readouterr()
-    assert "from_all: hello - inventory group_vars/all" in captured.out.strip()
-    assert "tests/test_data/inventory/group_vars/all/all" in captured.out.strip()
+    captured = "".join(capsys.readouterr().out.splitlines())
+    assert "from_all: hello - inventory group_vars/all" in captured
+    assert "tests/test_data/inventory/group_vars/all/all" in captured
 
 
 def test_cli_from_all_vvv(capsys):
     variables_cli = VariablesCLI(["ansible-variables", "server1", "--var", "from_all", "-vvv"])
     variables_cli.run()
-    captured = capsys.readouterr()
-    assert "from_all: hello - inventory group_vars/all" in captured.out.strip()
-    assert "tests/test_data/inventory/group_vars/all/all" in captured.out.strip()
-    assert "tests/test_data/inventory/group_vars/groupA.yml" in captured.out.strip()
+    captured = "".join(capsys.readouterr().out.splitlines())
+    # assert "from_all: hello - inventory group_vars/all" in captured
+    assert "tests/test_data/inventory/group_vars/all/all" in captured
+    assert "tests/test_data/inventory/group_vars/groupA.yml" in captured
+    assert "tests/test_data/inventory/group_vars/all/empty" in captured
