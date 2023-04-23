@@ -97,7 +97,7 @@ class VariablesCLI(CLI):
 
         # Initialize needed objects
         self.loader, self.inventory, self.vm = self._play_prereqs()
-        verbosity = context.CLIARGS["verbosity"]
+        verbosity = display.verbosity
 
         host = self.inventory.get_host(context.CLIARGS["host"])
         if not host:

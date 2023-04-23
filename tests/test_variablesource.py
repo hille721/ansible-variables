@@ -51,15 +51,31 @@ def test_occurrence():
         name="from_all",
         value="bar",
         source="foobar",
-        debuglog="""\x1b[1;30m  5108 1681472141.30319: Loading data from tests/test_data/inventory/group_vars/all\x1b[0m
-        \x1b[1;30m  5108 1681472141.30388: Loading data from tests/test_data/inventory/group_vars/groupA.yml\x1b[0m
+        debuglog="""\x1b[1;30m  5108 81472141.303: Loading data from tests/test_data/inventory/group_vars/all/all\x1b[0m
+        \x1b[1;30m  5108 81472141.30388: Loading data from tests/test_data/inventory/group_vars/groupA.yml\x1b[0m
         """,
     )
 
     assert var_source.value == "bar"
     assert var_source.source_mapped == "foobar"
     assert var_source.files == [
-        "tests/test_data/inventory/group_vars/all",
+        "tests/test_data/inventory/group_vars/all/all",
         "tests/test_data/inventory/group_vars/groupA.yml",
     ]
-    assert var_source.file_occurrences(loader=loader) == ["tests/test_data/inventory/group_vars/all"]
+    assert var_source.file_occurrences(loader=loader) == ["tests/test_data/inventory/group_vars/all/all"]
+
+
+def test_empty_file():
+    C.set_constant("CONFIG_FILE", "tests/test_data/ansible.cfg")
+
+    var_source = VariableSource(
+        name="from_all",
+        value="bar",
+        source="foobar",
+        debuglog="Loading data from tests/test_data/inventory/group_vars/all/empty",
+    )
+
+    assert var_source.files == [
+        "tests/test_data/inventory/group_vars/all/empty",
+    ]
+    assert not var_source.file_occurrences(loader=loader)
