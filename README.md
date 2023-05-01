@@ -1,7 +1,8 @@
 # ansible-variables
 
-[![PyPI version][pypi-version]][pypi-link]
-[![PyPI platforms][pypi-platforms]][pypi-link]
+[![PyPI version][pypi-version-badge]][pypi-link]
+[![PyPI platforms][pypi-platforms-badge]][pypi-link]
+[![pre-commit][pre-commit-badge]][pre-commit-link]
 
 The Ansible inventory provides a very powerful framework to declare variables in a hierarchical manner.
 There a lof of different places where a variable can be defined (inventory, host_vars, groups_vars, ...) and Ansible will merge them in a specific order ([variable precedence](https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_variables.html#understanding-variable-precedence)).
@@ -15,6 +16,8 @@ There a lof of different places where a variable can be defined (inventory, host
 * inventory host_vars/*
 
 Based on one host it will return a list with all variables, values and variable type.
+
+Tested with `ansible-core` 2.11 - 2.15.
 
 ## Installation
 
@@ -89,5 +92,7 @@ As as result, the output of `ansible-variables` can be fully trusted as it uses 
 This project is licensed under the [GNU General Public License v3.0](https://github.com/hille721/ansible-variables/blob/main/LICENSE)
 
 [pypi-link]:                https://pypi.org/project/ansible-variables/
-[pypi-platforms]:           https://img.shields.io/pypi/pyversions/ansible-variables
-[pypi-version]:             https://badge.fury.io/py/ansible-variables.svg
+[pypi-platforms-badge]:     https://img.shields.io/pypi/pyversions/ansible-variables
+[pypi-version-badge]:       https://badge.fury.io/py/ansible-variables.svg
+[pre-commit-badge]:         https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white>
+[pre-commit-link]:          https://pre-commit.com/
