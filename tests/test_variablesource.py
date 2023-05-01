@@ -1,8 +1,8 @@
 import pytest
-
 from ansible import constants as C
 from ansible.errors import AnsibleFileNotFound
 from ansible.parsing.dataloader import DataLoader
+
 from ansible_variables.utils.vars import VariableSource
 
 DEBUGLOG = """

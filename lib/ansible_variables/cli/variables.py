@@ -1,13 +1,14 @@
 import argparse
 
 import rich
-
 from ansible import context
 from ansible.cli import CLI
 from ansible.cli.arguments import option_helpers as opt_help
 from ansible.errors import AnsibleOptionsError
+from ansible.module_utils._text import to_native
 from ansible.utils.display import Display
 
+from ansible_variables import __version__
 from ansible_variables.utils.vars import variable_sources
 
 display = Display()
@@ -40,6 +41,15 @@ INTERNAL_VARS = frozenset(
 )
 
 
+class AnsibleVariablesVersion(argparse.Action):
+    """we want to have our ansible-variables package version in the --version output"""
+
+    def __call__(self, parser, namespace, values, option_string=None):
+        ansible_version = to_native(opt_help.version(f"ansible-variables {__version__}"))
+        print(ansible_version)
+        parser.exit()
+
+
 class VariablesCLI(CLI):
     """used to display from where a variable value is coming from"""
 
@@ -54,8 +64,15 @@ class VariablesCLI(CLI):
     def init_parser(self, usage="", desc=None, epilog=None):
         super().init_parser(
             usage="usage: %prog [options] [host]",
-            epilog="Show variable sources for a host.",
+            epilog="""Show variable sources for a host.
+                    Copyright 2023, Christoph Hille, https://github.com/hille721/ansible-variables.""",
         )
+        version_help = (
+            "show program's version number, config file location, configured module search path,"
+            " module location, executable location and exit"
+        )
+
+        self.parser.add_argument("--version", action=AnsibleVariablesVersion, nargs=0, help=version_help)
 
         opt_help.add_inventory_options(self.parser)
         opt_help.add_vault_options(self.parser)

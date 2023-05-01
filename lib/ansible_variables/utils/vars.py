@@ -1,13 +1,13 @@
 import contextlib
-from dataclasses import dataclass
 import io
-from typing import Optional, List
 import re
+from dataclasses import dataclass
+from typing import List, Optional
 
 from ansible import constants as C
 from ansible.inventory.host import Host
-from ansible.utils.display import Display
 from ansible.parsing.dataloader import DataLoader
+from ansible.utils.display import Display
 from ansible.vars.manager import VariableManager, VarsWithSources
 
 display = Display()
