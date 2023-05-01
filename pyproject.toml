@@ -2,3 +2,9 @@
 # maybe in the future we will use it instead of setup.py / setup.cfg
 [tool.black]
 line-length = 120
+
+[tool.isort]
+profile = "black"
+known_first_party = "ansible_variables"
+known_third_party = "ansible,pytest,pkg_resources,setuptools,rich"
+line_length = 120

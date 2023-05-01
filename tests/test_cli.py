@@ -1,5 +1,4 @@
 import pytest
-
 from ansible import constants as C
 
 from ansible_variables.cli.variables import VariablesCLI

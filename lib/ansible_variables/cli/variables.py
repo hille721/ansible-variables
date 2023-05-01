@@ -1,7 +1,6 @@
 import argparse
 
 import rich
-
 from ansible import context
 from ansible.cli import CLI
 from ansible.cli.arguments import option_helpers as opt_help

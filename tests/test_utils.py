@@ -1,6 +1,6 @@
 from ansible import constants as C
-from ansible.parsing.dataloader import DataLoader
 from ansible.inventory.manager import InventoryManager
+from ansible.parsing.dataloader import DataLoader
 from ansible.vars.manager import VariableManager
 
 from ansible_variables.utils.vars import variable_sources
