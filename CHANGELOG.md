@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.3](https://github.com/hille721/ansible-variables/compare/v0.4.2...v0.4.3) (2023-05-01)
+
+
+### Documentation
+
+* improve --version and --help ([#16](https://github.com/hille721/ansible-variables/issues/16)) ([a55f97c](https://github.com/hille721/ansible-variables/commit/a55f97c2ca827e2558e4faaf9ae45b87b96e8796))
+
 ## [0.4.2](https://github.com/hille721/ansible-variables/compare/v0.4.1...v0.4.2) (2023-04-23)
 
 
