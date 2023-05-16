@@ -20,7 +20,7 @@ repos:
         language_version: python3
 
   - repo: https://github.com/crate-ci/typos
-    rev: v1.14.9
+    rev: typos-dict-v0.9.26
     hooks:
       - id: typos
 
