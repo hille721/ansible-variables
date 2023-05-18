@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.5.0](https://github.com/hille721/ansible-variables/compare/v0.4.3...v0.5.0) (2023-05-18)
+
+
+### Features
+
+* Improve performance for running with -vvv ([#20](https://github.com/hille721/ansible-variables/issues/20)) ([a893ddf](https://github.com/hille721/ansible-variables/commit/a893ddf21654f50e7ba089a65719977bec32dd26))
+* support ansible-core 2.11 and 2.12 ([#24](https://github.com/hille721/ansible-variables/issues/24)) ([d745a4f](https://github.com/hille721/ansible-variables/commit/d745a4fbea81dfb7db0af9121142c290a78ef3a9))
+
 ## [0.4.3](https://github.com/hille721/ansible-variables/compare/v0.4.2...v0.4.3) (2023-05-01)
 
 
