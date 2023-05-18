@@ -82,8 +82,11 @@ class VariableSource:
 
         for ffile in self.files:
             display.vvv("Checking file %s for occurrence of variable %s" % (ffile, self.name))
-            fvars = loader.load_from_file(ffile, unsafe=True)
-            if fvars and self.name in fvars:
+
+            # Setting unsafe=True will prevent deepcopy and will help with performance
+            # and it's safe because we're not modifying the content
+            content = loader.load_from_file(ffile, unsafe=True)
+            if content and self.name in content:
                 occurrences.append(ffile)
 
         return occurrences
