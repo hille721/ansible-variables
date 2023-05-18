@@ -145,10 +145,12 @@ def main(args=None):
             args = sys.argv
 
         try:
-            args = [to_text(a, errors='surrogate_or_strict') for a in args]
+            args = [to_text(a, errors="surrogate_or_strict") for a in args]
         except UnicodeError:
-            display.error('Command line args are not in utf-8, unable to continue.  Ansible currently only understands utf-8')
-            display.display(u"The full traceback was:\n\n%s" % to_text(traceback.format_exc()))
+            display.error(
+                "Command line args are not in utf-8, unable to continue.  Ansible currently only understands utf-8"
+            )
+            display.display("The full traceback was:\n\n%s" % to_text(traceback.format_exc()))
             exit_code = 6
         else:
             cli = VariablesCLI(args)
