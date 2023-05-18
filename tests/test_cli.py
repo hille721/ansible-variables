@@ -1,18 +1,15 @@
 import pytest
 from ansible import constants as C
 
-from ansible_variables.cli.variables import VariablesCLI
+from ansible_variables.cli.variables import VariablesCLI, main
 
 C.set_constant("CONFIG_FILE", "tests/test_data/ansible.cfg")
 C.set_constant("DEFAULT_HOST_LIST", "tests/test_data/inventory")
 
 
-def test_parse(capsys):
-    """Test ansible-variables parse"""
-
-    variables_cli = VariablesCLI(["ansible-variables"])
+def test_main(capsys):
     with pytest.raises(SystemExit) as pytest_wrapped_e:
-        variables_cli.parse()
+        main(["ansible-variables"])
     assert pytest_wrapped_e.type == SystemExit
     assert "ansible-variables: error: the following arguments are required: host" in capsys.readouterr().err
 

@@ -2,13 +2,13 @@ import argparse
 
 import rich
 from ansible import context
-from ansible.cli import CLI
 from ansible.cli.arguments import option_helpers as opt_help
 from ansible.errors import AnsibleOptionsError
 from ansible.module_utils._text import to_native
 from ansible.utils.display import Display
 
 from ansible_variables import __version__
+from ansible_variables.cli import CLI
 from ansible_variables.utils.vars import variable_sources
 
 display = Display()
