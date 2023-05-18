@@ -50,6 +50,7 @@ repos:
           - ansible-core>=2.11.0
           - rich
           - pytest
+        stages: [manual] # not working if only single files are passed
 
   - repo: https://github.com/pycqa/isort
     rev: 5.12.0
