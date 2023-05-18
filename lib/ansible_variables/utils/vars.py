@@ -82,7 +82,8 @@ class VariableSource:
 
         for ffile in self.files:
             display.vvv("Checking file %s for occurrence of variable %s" % (ffile, self.name))
-            if loader.load_from_file(ffile) and self.name in loader.load_from_file(ffile):
+            fvars = loader.load_from_file(ffile, unsafe=True)
+            if fvars and self.name in fvars:
                 occurrences.append(ffile)
 
         return occurrences
