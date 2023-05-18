@@ -139,7 +139,7 @@ class VariablesCLI(CLI):
 
 def main(args=None):
     if hasattr(VariablesCLI, "cli_executor"):
-        exit_code = VariablesCLI.cli_executor(args)
+        VariablesCLI.cli_executor(args)
     else:
         if args is None:
             args = sys.argv
@@ -147,14 +147,14 @@ def main(args=None):
         try:
             args = [to_text(a, errors='surrogate_or_strict') for a in args]
         except UnicodeError:
-            display.error('Command line args are not in utf-8, unable to continue.  Ansible currently only understands utf-8')
-            display.display(u"The full traceback was:\n\n%s" % to_text(traceback.format_exc()))
-            exit_code = 6
+            display.error(
+                "Command line args are not in utf-8, unable to continue.  Ansible currently only understands utf-8"
+            )
+            display.display("The full traceback was:\n\n%s" % to_text(traceback.format_exc()))
+            return 6
         else:
             cli = VariablesCLI(args)
-            exit_code = cli.run()
-
-    return exit_code
+            return cli.run()
 
 
 if __name__ == "__main__":
