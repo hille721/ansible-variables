@@ -1,16 +1,14 @@
 import argparse
-import sys
-import traceback
 
 import rich
 from ansible import context
-from ansible.cli import CLI
 from ansible.cli.arguments import option_helpers as opt_help
 from ansible.errors import AnsibleOptionsError
-from ansible.module_utils._text import to_native, to_text
+from ansible.module_utils._text import to_native
 from ansible.utils.display import Display
 
 from ansible_variables import __version__
+from ansible_variables.cli import CLI
 from ansible_variables.utils.vars import variable_sources
 
 display = Display()
@@ -138,23 +136,7 @@ class VariablesCLI(CLI):
 
 
 def main(args=None):
-    if hasattr(VariablesCLI, "cli_executor"):
-        VariablesCLI.cli_executor(args)
-    else:
-        if args is None:
-            args = sys.argv
-
-        try:
-            args = [to_text(a, errors='surrogate_or_strict') for a in args]
-        except UnicodeError:
-            display.error(
-                "Command line args are not in utf-8, unable to continue.  Ansible currently only understands utf-8"
-            )
-            display.display("The full traceback was:\n\n%s" % to_text(traceback.format_exc()))
-            sys.exit(6)
-
-        cli = VariablesCLI(args)
-        sys.exit(cli.run())
+    VariablesCLI.cli_executor(args)
 
 
 if __name__ == "__main__":
