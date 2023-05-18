@@ -151,10 +151,10 @@ def main(args=None):
                 "Command line args are not in utf-8, unable to continue.  Ansible currently only understands utf-8"
             )
             display.display("The full traceback was:\n\n%s" % to_text(traceback.format_exc()))
-            return 6
-        else:
-            cli = VariablesCLI(args)
-            return cli.run()
+            sys.exit(6)
+
+        cli = VariablesCLI(args)
+        sys.exit(cli.run())
 
 
 if __name__ == "__main__":
