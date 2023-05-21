@@ -1,10 +1,19 @@
-# for now only be used for black config
+# for now only be used for black and ruff config
 # maybe in the future we will use it instead of setup.py / setup.cfg
 [tool.black]
 line-length = 120
 
-[tool.isort]
-profile = "black"
-known_first_party = "ansible_variables"
-known_third_party = "ansible,pytest,pkg_resources,setuptools,rich"
-line_length = 120
+[tool.ruff]
+line-length = 120
+select = [
+    # Pyflakes
+    "F",
+    # Pycodestyle
+    "E",
+    "W",
+    # isort
+    "I001"
+    ]
+
+[tool.ruff.isort]
+known-first-party = ["ansible_variables"]
