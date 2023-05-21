@@ -5,7 +5,9 @@
 [![pre-commit][pre-commit-badge]][pre-commit-link]
 
 The Ansible inventory provides a very powerful framework to declare variables in a hierarchical manner.
-There a lof of different places where a variable can be defined (inventory, host_vars, groups_vars, ...) and Ansible will merge them in a specific order ([variable precedence](https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_variables.html#understanding-variable-precedence)).
+There a lof of different places where a variable can be defined (inventory, host_vars, groups_vars, ...)
+and Ansible will merge them in a specific order
+([variable precedence](https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_variables.html#understanding-variable-precedence)).
 
 `ansible-variables` will help to keep track of your host context variables:
 
@@ -27,7 +29,8 @@ pip install ansible-variables
 
 ## Usage
 
-The command line usage is similar to the official Ansible CLI tools, especially like ansible-inventory, thus to see all possible commands and options run
+The command line usage is similar to the official Ansible CLI tools, especially like ansible-inventory,
+thus to see all possible commands and options run
 
 ```plain
 ansible-variables --help
@@ -73,15 +76,20 @@ ansible-variables mywebserver -i /path/to/inventory
 ## Implementation
 
 This tool is tightly coupled to the Ansible library (`ansible-core`) and simple reuses what is already there.
-The whole structure and implementation was inspired and oriented by the implementation of [`ansible-inventory`](https://github.com/ansible/ansible/blob/devel/lib/ansible/cli/inventory.py).
+The whole structure and implementation was inspired and oriented by the implementation of
+[`ansible-inventory`](https://github.com/ansible/ansible/blob/devel/lib/ansible/cli/inventory.py).
 
-To get the source and the inventory files in which Ansible will look for a variable, we are using a [debug flag](https://github.com/ansible/ansible/blob/devel/lib/ansible/vars/manager.py#L187) in Ansible's `get_vars` method.
+To get the source and the inventory files in which Ansible will look for a variable,
+we are using a [debug flag](https://github.com/ansible/ansible/blob/devel/lib/ansible/vars/manager.py#L187)
+in Ansible's `get_vars` method.
 
-As as result, the output of `ansible-variables` can be fully trusted as it uses the same methods as Ansible to get the variable precedence.
+As as result, the output of `ansible-variables` can be fully trusted
+as it uses the same methods as Ansible to get the variable precedence.
 
 ## Limitations
 
-* as written in the description, this tool only shows host context variables and does not know anything about playbook or role variables or command line options.
+* as written in the description, this tool only shows host context variables and
+does not know anything about playbook or role variables or command line options.
 
 ## Credits
 
