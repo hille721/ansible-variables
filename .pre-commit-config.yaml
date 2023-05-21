@@ -44,13 +44,15 @@ repos:
     rev: v3.0.0a6
     hooks:
       - id: pylint
+        pass_filenames: false
+        entry: pylint lib tests
         args:
           - --output-format=colorized
         additional_dependencies:
+          - .
           - ansible-core>=2.11.0
           - rich
           - pytest
-        stages: [manual] # not working if only single files are passed
 
   - repo: https://github.com/pycqa/isort
     rev: 5.12.0
