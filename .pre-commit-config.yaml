@@ -20,7 +20,7 @@ repos:
         language_version: python3
 
   - repo: https://github.com/crate-ci/typos
-    rev: v1.16.0
+    rev: v1.16.1
     hooks:
       - id: typos
 
@@ -31,7 +31,7 @@ repos:
         exclude: ".ci/hack"
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: 'v0.0.277'
+    rev: 'v0.0.278'
     hooks:
       - id: ruff
         args:
