@@ -1,5 +1,5 @@
-# This will run tox with https://github.com/ymyzk/tox-gh-actions
-name: Tox
+# This will run tox with https://github.com/coactions/dynamic-matrix
+name: tox
 
 on:
   push:
@@ -7,22 +7,65 @@ on:
   pull_request:
     branches: ["main"]
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.sha }}
+  cancel-in-progress: true
+
+env:
+  FORCE_COLOR: 1 # tox, pytest, ansible-lint
+  PY_COLORS: 1
+
 jobs:
-  test:
+  pre:
+    name: pre
     runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.generate_matrix.outputs.matrix }}
+    steps:
+      - name: Determine matrix
+        id: generate_matrix
+        uses: coactions/dynamic-matrix@v1
+        with:
+          min_python: "3.8"
+          max_python: "3.11"
+          other_names: |
+            py38-2.11
+            py38-2.12
+            py38-2.13
+            py39-2.11
+            py39-2.12
+            py39-2.13
+            py39-2.14
+            py39-2.15
+            py310-2.12
+            py310-2.13
+            py310-2.14
+            py310-2.15
+            py310-devel
+            py311-2.14
+            py311-2.15
+            py311-devel
+
+  build:
+    name: ${{ matrix.name }}
+    runs-on: ${{ matrix.os || 'ubuntu-22.04' }}
+    needs: pre
     strategy:
-      matrix:
-        python-version: ["3.8", "3.9", "3.10", "3.11"]
+      matrix: ${{ fromJson(needs.pre.outputs.matrix) }}
 
     steps:
       - uses: actions/checkout@v3
-      - name: Set up Python ${{ matrix.python-version }}
+        with:
+          fetch-depth: 0
+
+      - name: Set up python ${{ matrix.python_version }}
         uses: actions/setup-python@v4
         with:
-          python-version: ${{ matrix.python-version }}
-      - name: Install dependencies
+          python-version: ${{ matrix.python_version }}
+
+      - name: Install tox
         run: |
-          python -m pip install --upgrade pip
-          python -m pip install tox tox-gh-actions
-      - name: Test with tox
-        run: tox
+          python -m pip install -U pip
+          pip install tox
+
+      - run: tox run -e ${{ matrix.passed_name }}

@@ -33,6 +33,7 @@ credentials.yml
 .tox
 .cache
 .pytest_cache
+.ruff_cache
 results.xml
 coverage.xml
 # Development
