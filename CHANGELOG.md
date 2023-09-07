@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.5.1](https://github.com/hille721/ansible-variables/compare/v0.5.0...v0.5.1) (2023-09-07)
+
+
+### Bug Fixes
+
+* passing undefined variable to --var will lead to Exception ([#30](https://github.com/hille721/ansible-variables/issues/30)) ([dfbb736](https://github.com/hille721/ansible-variables/commit/dfbb7365d7834ae2275172d2e9465a042f41e5e0))
+
 ## [0.5.0](https://github.com/hille721/ansible-variables/compare/v0.4.3...v0.5.0) (2023-05-18)
 
 
