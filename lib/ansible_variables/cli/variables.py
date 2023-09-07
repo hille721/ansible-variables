@@ -3,7 +3,7 @@ import argparse
 import rich
 from ansible import context
 from ansible.cli.arguments import option_helpers as opt_help
-from ansible.errors import AnsibleOptionsError
+from ansible.errors import AnsibleOptionsError, AnsibleUndefinedVariable
 from ansible.module_utils._text import to_native
 from ansible.utils.display import Display
 
@@ -126,6 +126,9 @@ class VariablesCLI(CLI):
             var=context.CLIARGS["variable"],
         ):
             if variable.name not in INTERNAL_VARS:
+                if context.CLIARGS["variable"] and not variable.value:
+                    # variable as options passed which is not defined
+                    raise AnsibleUndefinedVariable("Variable %s is not defined" % variable.name)
                 rich.print(
                     f"[bold]{variable.name}[/bold]: {variable.value} - [italic]{variable.source_mapped}[/italic]"
                 )

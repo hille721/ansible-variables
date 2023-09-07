@@ -6,6 +6,9 @@ from ansible_variables.cli.variables import VariablesCLI, main
 C.set_constant("CONFIG_FILE", "tests/test_data/ansible.cfg")
 C.set_constant("DEFAULT_HOST_LIST", "tests/test_data/inventory")
 
+# FIXME: we should not invoke the test with main() or VariablesCLI() as this will lead to context.CLIArgs set
+# which will not be cleared between the tests and so could lead to unexpected results
+
 
 def test_main(capsys):
     with pytest.raises(SystemExit) as pytest_wrapped_e:
