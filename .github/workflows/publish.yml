@@ -22,7 +22,7 @@ jobs:
           package-name: ansible-variables
 
       # build & publish to PyPI
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         if: ${{ steps.release.outputs.release_created }}
       - name: Set up Python
         uses: actions/setup-python@v3
