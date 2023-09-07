@@ -42,7 +42,7 @@ class VariableSource:
         }
 
         for key, value in source_map.items():
-            if self.source.startswith(key):
+            if self.source and self.source.startswith(key):
                 return value
 
         return self.source

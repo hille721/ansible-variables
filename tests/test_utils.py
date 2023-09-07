@@ -84,3 +84,13 @@ def test_inventory_server3():
             "group vars, precedence entry 'all_inventory'",
         )
     ] == [(source.name, source.value, source.source) for source in sources]
+
+
+def test_undefined_variable():
+    sources = variable_sources(
+        variable_manager=variable_manager, host=inventory.get_host("server1"), var="undefined_variable_blablabla_1234"
+    )
+    for variable in sources:
+        assert variable.name
+        assert not variable.value  # should have None value
+        assert not variable.source_mapped  # should have None source
