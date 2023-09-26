@@ -39,9 +39,11 @@ jobs:
             py310-2.13
             py310-2.14
             py310-2.15
+            py310-2.16
             py310-devel
             py311-2.14
             py311-2.15
+            py311-2.16
             py311-devel
 
   build:
