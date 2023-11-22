@@ -45,6 +45,8 @@ jobs:
             py311-2.15
             py311-2.16
             py311-devel
+            py312-2.16
+            py312-devel
 
   build:
     name: ${{ matrix.name }}
