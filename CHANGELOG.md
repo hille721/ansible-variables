@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.6.0](https://github.com/hille721/ansible-variables/compare/v0.5.1...v0.6.0) (2023-11-22)
+
+
+### Features
+
+* support for Python  3.12 ([#49](https://github.com/hille721/ansible-variables/issues/49)) ([6a8c466](https://github.com/hille721/ansible-variables/commit/6a8c466ecb10ac8e293966d7d4f90d56489ac931))
+
 ## [0.5.1](https://github.com/hille721/ansible-variables/compare/v0.5.0...v0.5.1) (2023-09-07)
 
 
