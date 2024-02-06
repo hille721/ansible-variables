@@ -13,6 +13,12 @@ from ansible.vars.manager import VariableManager, VarsWithSources
 display = Display()
 
 
+def escape_ansi(line):
+    """The debug output contains ANSI codings, we need to remove them"""
+    ansi_escape = re.compile(r"(?:\x1B[@-_]|[\x80-\x9F])[0-?]*[ -/]*[@-~]")
+    return ansi_escape.sub("", line)
+
+
 @dataclass
 class VariableSource:
     """Class for keeping track of an variable source item"""
@@ -51,12 +57,6 @@ class VariableSource:
     def files(self) -> List[str]:
         return self.parse_files_from_debug_log()
 
-    @staticmethod
-    def escape_ansi(line):
-        """The debug output contains ANSI codings, we need to remove them"""
-        ansi_escape = re.compile(r"(?:\x1B[@-_]|[\x80-\x9F])[0-?]*[ -/]*[@-~]")
-        return ansi_escape.sub("", line)
-
     def parse_files_from_debug_log(self) -> List[str]:
         """The debug output from `variable_manager.get_vars()` contains all filenames
         from which the variables were loaded.
@@ -70,7 +70,7 @@ class VariableSource:
             return files
 
         for line in self.debuglog.splitlines():
-            found = re.search(r"Loading data from ([^\s]*)", self.escape_ansi(line))
+            found = re.search(r"Loading data from ([^\s]*)", escape_ansi(line))
             if found:
                 files.extend(found.groups())
 
