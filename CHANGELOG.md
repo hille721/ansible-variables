@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.6.1](https://github.com/hille721/ansible-variables/compare/v0.6.0...v0.6.1) (2024-03-10)
+
+
+### Miscellaneous Chores
+
+* release 0.6.1 ([e0b45a5](https://github.com/hille721/ansible-variables/commit/e0b45a5f83def5077434f34d20352df0d537f66d))
+
 ## [0.6.0](https://github.com/hille721/ansible-variables/compare/v0.5.1...v0.6.0) (2023-11-22)
 
 
