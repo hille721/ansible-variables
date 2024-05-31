@@ -19,7 +19,7 @@ and Ansible will merge them in a specific order
 
 Based on one host it will return a list with all variables, values and variable type.
 
-Tested with `ansible-core` 2.11 - 2.16.
+Tested with `ansible-core` 2.11 - 2.17.
 
 ## Installation
 
