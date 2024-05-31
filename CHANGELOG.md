@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.7.0](https://github.com/hille721/ansible-variables/compare/v0.6.1...v0.7.0) (2024-05-31)
+
+
+### Features
+
+* support for ansible-core 2.17 ([#67](https://github.com/hille721/ansible-variables/issues/67)) ([fa1967a](https://github.com/hille721/ansible-variables/commit/fa1967abbf28eca3ca192589a494fc0688b9cb31))
+
 ## [0.6.1](https://github.com/hille721/ansible-variables/compare/v0.6.0...v0.6.1) (2024-03-10)
 
 
