@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.7.2](https://github.com/hille721/ansible-variables/compare/v0.7.1...v0.7.2) (2024-09-16)
+
+
+### Bug Fixes
+
+* migrate to release please v4 ([#78](https://github.com/hille721/ansible-variables/issues/78)) ([e14c7b3](https://github.com/hille721/ansible-variables/commit/e14c7b3395c2f3d1a74863ba26ca29edaf227c6d))
+
 ## [0.7.1](https://github.com/hille721/ansible-variables/compare/v0.7.0...v0.7.1) (2024-09-16)
 
 
