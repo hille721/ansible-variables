@@ -7,6 +7,7 @@ from ansible_variables.utils.vars import escape_ansi
 C.set_constant("CONFIG_FILE", "tests/test_data/ansible.cfg")
 C.set_constant("DEFAULT_HOST_LIST", "tests/test_data/inventory")
 
+# pylint: disable=fixme
 # FIXME: we should not invoke the test with main() or VariablesCLI() as this will lead to context.CLIArgs set
 # which will not be cleared between the tests and so could lead to unexpected results
 
