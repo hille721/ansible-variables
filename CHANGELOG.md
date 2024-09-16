@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.7.1](https://github.com/hille721/ansible-variables/compare/v0.7.0...v0.7.1) (2024-09-16)
+
+
+### Miscellaneous Chores
+
+* **deps:** bump pypa/gh-action-pypi-publish from 1.8.14 to 1.10.1 ([#75](https://github.com/hille721/ansible-variables/issues/75)) ([7f3c4ee](https://github.com/hille721/ansible-variables/commit/7f3c4ee2883e6bb90bc0ea1b59eb92585e2bba09))
+
 ## [0.7.0](https://github.com/hille721/ansible-variables/compare/v0.6.1...v0.7.0) (2024-05-31)
 
 
