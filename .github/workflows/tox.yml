@@ -24,7 +24,7 @@ jobs:
     steps:
       - name: Determine matrix
         id: generate_matrix
-        uses: coactions/dynamic-matrix@v1
+        uses: coactions/dynamic-matrix@v3
         with:
           other_names: |
             py38-2.11
@@ -72,4 +72,4 @@ jobs:
           python -m pip install -U pip
           pip install tox
 
-      - run: tox run -e ${{ matrix.passed_name }}
+      - run: ${{ matrix.command }}
