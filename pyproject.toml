@@ -6,10 +6,13 @@ build-backend = "setuptools.build_meta"
 name = "ansible-variables"
 version = "0.7.2"
 dependencies = [
-    "ansible-core>=2.11.0",
-    "rich"
+    "ansible-core >=2.11.0; python_version <= '3.9'",
+    "ansible-core >=2.12.0,<8; python_version == '3.10'",
+    "ansible-core >=2.14.0,<8; python_version == '3.11'",
+    "ansible-core >=2.16.0,<8; python_version == '3.12'",
+    "rich",
 ]
-requires-python = ">=3.8"
+requires-python = ">=3.8,<3.13"
 authors = [
     {"name" = "Christoph Hille", "email" = "hille721@gmail.com"}
 ]
@@ -81,3 +84,14 @@ select = [
 
 [tool.ruff.lint.isort]
 known-first-party = ["ansible_variables"]
+
+[tool.uv]
+dev-dependencies = [
+  "black>=24.8.0",
+  "pre-commit>=3.5.0",
+  "pylint>=3.2.7",
+  "pytest >=8.1.1,<9",
+  "ruff>=0.6.5",
+  "tox-uv>=1.11.3",
+  "tox>=4.18.1",
+]

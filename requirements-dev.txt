@@ -1,8 +1,0 @@
--e .
-
-tox
-black
-pylint
-ruff
-pytest
-pre-commit
