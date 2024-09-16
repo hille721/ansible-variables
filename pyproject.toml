@@ -1,10 +1,72 @@
-# for now only be used for black and ruff config
-# maybe in the future we will use it instead of setup.py / setup.cfg
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ansible-variables"
+version = "0.7.2"
+dependencies = [
+    "ansible-core>=2.11.0",
+    "rich"
+]
+requires-python = ">=3.8"
+authors = [
+    {"name" = "Christoph Hille", "email" = "hille721@gmail.com"}
+]
+description = "Keep track of Ansible host context variables"
+readme = "README.md"
+license = {file = "LICENSE"}
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Information Technology",
+    "Intended Audience :: System Administrators",
+    "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+    "Natural Language :: English",
+    "Operating System :: POSIX",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: System :: Installation/Setup",
+    "Topic :: System :: Systems Administration",
+    "Topic :: Utilities",
+]
+
+[project.urls]
+Homepage = "https://github.com/hille721/ansible-variables"
+Documentation = "https://github.com/hille721/ansible-variables/blob/main/README.md"
+Repository = "https://github.com/hille721/ansible-variables.git"
+"Bug Tracker" = "https://github.com/hille721/ansible-variables/issues"
+Changelog = "https://github.com/hille721/ansible-variables/blob/master/CHANGELOG.md"
+
+[project.scripts]
+ansible-variables = "ansible_variables.cli.variables:main"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["lib"]
+exclude = ["tests"]
+
 [tool.black]
 line-length = 120
 
+[tool.pylint.format]
+max-line-length = 120
+
+[tool.pylint."message control"]
+disable= ["C", "R"]
+
 [tool.ruff]
 line-length = 120
+
+[tool.ruff.lint]
 select = [
     # Pyflakes
     "F",
@@ -12,8 +74,10 @@ select = [
     "E",
     "W",
     # isort
-    "I001"
+    "I",
+    # pylint
+    "PLE", "PLW"
     ]
 
-[tool.ruff.isort]
+[tool.ruff.lint.isort]
 known-first-party = ["ansible_variables"]
