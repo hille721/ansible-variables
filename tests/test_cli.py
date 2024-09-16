@@ -14,7 +14,7 @@ C.set_constant("DEFAULT_HOST_LIST", "tests/test_data/inventory")
 def test_main(capsys):
     with pytest.raises(SystemExit) as pytest_wrapped_e:
         main(["ansible-variables"])
-    assert pytest_wrapped_e.type == SystemExit
+    assert pytest_wrapped_e.type is SystemExit
     assert "ansible-variables: error: the following arguments are required: host" in capsys.readouterr().err
 
 
