@@ -62,3 +62,12 @@ repos:
           - ansible-core>=2.11.0
           - rich
           - pytest
+
+  - repo: https://github.com/astral-sh/uv-pre-commit
+    rev: 0.4.10
+    hooks:
+      - id: uv-lock
+
+      # as soon as https://github.com/astral-sh/uv-pre-commit/pull/18 gets merged, we can use the following hook
+      # - id: uv-export
+      #   args: ["--frozen", "--no-hashes", "-o=requirements-dev.txt"]
