@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.7.3](https://github.com/hille721/ansible-variables/compare/v0.7.2...v0.7.3) (2024-09-17)
+
+
+### Miscellaneous Chores
+
+* usage of uv for development and packaging([#81](https://github.com/hille721/ansible-variables/issues/81)) ([eca13a3](https://github.com/hille721/ansible-variables/commit/eca13a3f7a63674326f348916ae97b247487f74b))
+
 ## [0.7.2](https://github.com/hille721/ansible-variables/compare/v0.7.1...v0.7.2) (2024-09-16)
 
 
