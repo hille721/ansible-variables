@@ -6,6 +6,8 @@ ci:
   autofix_commit_msg: |
     chore: auto fixes from pre-commit.com hooks
     for more information, see https://pre-commit.ci
+  skip:
+    - uv-lock # will make problems during release please PRs
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks.git
     rev: v4.6.0
@@ -55,12 +57,12 @@ repos:
           - pytest
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: 'v0.6.3'
+    rev: "v0.6.3"
     hooks:
       - id: ruff
         args:
-         - --fix
-         - --exit-non-zero-on-fix
+          - --fix
+          - --exit-non-zero-on-fix
       - id: ruff-format
 
   - repo: https://github.com/astral-sh/uv-pre-commit
