@@ -42,3 +42,7 @@ jobs:
           user: __token__
           password: ${{ secrets.PYPI_PASSWORD }}
         if: ${{ steps.release.outputs.release_created }}
+
+      - name: Verify package
+        run: uvx --refresh -- ansible-variables --version
+        if: ${{ steps.release.outputs.release_created }}
