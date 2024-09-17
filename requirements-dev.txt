@@ -3,12 +3,10 @@
 ansible-core==2.13.13 ; python_full_version < '3.11'
 ansible-core==2.17.4 ; python_full_version >= '3.11'
 astroid==3.2.4
-black==24.8.0
 cachetools==5.5.0
 cffi==1.17.1 ; platform_python_implementation != 'PyPy'
 cfgv==3.4.0
 chardet==5.2.0
-click==8.1.7
 colorama==0.4.6
 cryptography==43.0.1
 dill==0.3.8
@@ -16,6 +14,7 @@ distlib==0.3.8
 exceptiongroup==1.2.2 ; python_full_version < '3.11'
 filelock==3.16.0
 identify==2.6.1
+importlib-metadata==8.5.0 ; python_full_version < '3.10'
 importlib-resources==6.4.5 ; python_full_version < '3.9'
 iniconfig==2.0.0
 isort==5.13.2
@@ -23,11 +22,10 @@ jinja2==3.1.4
 markdown-it-py==3.0.0
 markupsafe==2.1.5
 mccabe==0.7.0
+mdformat==0.7.17
 mdurl==0.1.2
-mypy-extensions==1.0.0
 nodeenv==1.9.1
 packaging==24.1
-pathspec==0.12.1
 platformdirs==4.3.3
 pluggy==1.5.0
 pre-commit==3.5.0
@@ -47,4 +45,4 @@ tox-uv==1.11.3
 typing-extensions==4.12.2 ; python_full_version < '3.11'
 uv==0.4.10
 virtualenv==20.26.4
-zipp==3.20.2 ; python_full_version < '3.9'
+zipp==3.20.2 ; python_full_version < '3.10'

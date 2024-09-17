@@ -3,6 +3,7 @@
 [![PyPI version][pypi-version-badge]][pypi-link]
 [![PyPI platforms][pypi-platforms-badge]][pypi-link]
 [![pre-commit][pre-commit-badge]][pre-commit-link]
+[![Ruff][ruff-badge]][ruff-link]
 
 The Ansible inventory provides a very powerful framework to declare variables in a hierarchical manner.
 There a lof of different places where a variable can be defined (inventory, host_vars, groups_vars, ...)
@@ -11,11 +12,11 @@ and Ansible will merge them in a specific order
 
 `ansible-variables` will help to keep track of your host context variables:
 
-* inventory file or script group vars
-* inventory group_vars/all
-* inventory group_vars/*
-* inventory file or script host vars
-* inventory host_vars/*
+- inventory file or script group vars
+- inventory group_vars/all
+- inventory group_vars/\*
+- inventory file or script host vars
+- inventory host_vars/\*
 
 Based on one host it will return a list with all variables, values and variable type.
 
@@ -88,19 +89,21 @@ as it uses the same methods as Ansible to get the variable precedence.
 
 ## Limitations
 
-* as written in the description, this tool only shows host context variables and
-does not know anything about playbook or role variables or command line options.
+- as written in the description, this tool only shows host context variables and
+  does not know anything about playbook or role variables or command line options.
 
 ## Credits
 
-* the screenshots used  in this README where created with [termshot](https://github.com/homeport/termshot)
+- the screenshots used  in this README where created with [termshot](https://github.com/homeport/termshot)
 
 ## License
 
 This project is licensed under the [GNU General Public License v3.0](https://github.com/hille721/ansible-variables/blob/main/LICENSE)
 
-[pypi-link]:                https://pypi.org/project/ansible-variables/
-[pypi-platforms-badge]:     https://img.shields.io/pypi/pyversions/ansible-variables
-[pypi-version-badge]:       https://badge.fury.io/py/ansible-variables.svg
-[pre-commit-badge]:         https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white>
-[pre-commit-link]:          https://pre-commit.com/
+[pre-commit-badge]: https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white%3E
+[pre-commit-link]: https://pre-commit.com/
+[pypi-link]: https://pypi.org/project/ansible-variables/
+[pypi-platforms-badge]: https://img.shields.io/pypi/pyversions/ansible-variables
+[pypi-version-badge]: https://badge.fury.io/py/ansible-variables.svg
+[ruff-badge]: https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json
+[ruff-link]: https://github.com/astral-sh/ruff
