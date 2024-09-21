@@ -31,7 +31,7 @@ pluggy==1.5.0
 pre-commit==3.5.0
 pycparser==2.22 ; platform_python_implementation != 'PyPy'
 pygments==2.18.0
-pylint==3.2.7
+pylint==3.3.0
 pyproject-api==1.7.1
 pytest==8.3.3
 pyyaml==6.0.2
