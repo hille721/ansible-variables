@@ -88,7 +88,6 @@ known-first-party = ["ansible_variables"]
 [tool.uv]
 dev-dependencies = [
   "mdformat>=0.7.17",
-  "pre-commit>=3.5.0",
   "pylint>=3.2.7",
   "pytest >=8.1.1,<9",
   "ruff>=0.6.5",
