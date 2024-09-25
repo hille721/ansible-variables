@@ -5,13 +5,13 @@ updates:
     directory: /
     schedule:
       day: saturday
-      interval: weekly
+      interval: monthly
     labels:
       - "dependencies"
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
       day: saturday
-      interval: weekly
+      interval: monthly
     labels:
       - "dependencies"
