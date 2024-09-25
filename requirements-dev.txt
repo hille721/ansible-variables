@@ -41,7 +41,7 @@ ruff==0.6.5
 tomli==2.0.1 ; python_full_version < '3.11'
 tomlkit==0.13.2
 tox==4.18.1
-tox-uv==1.11.3
+tox-uv==1.13.0
 typing-extensions==4.12.2 ; python_full_version < '3.11'
 uv==0.4.10
 virtualenv==20.26.4
