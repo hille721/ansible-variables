@@ -26,7 +26,7 @@ mdformat==0.7.17
 mdurl==0.1.2
 nodeenv==1.9.1
 packaging==24.1
-platformdirs==4.3.3
+platformdirs==4.3.6
 pluggy==1.5.0
 pre-commit==3.5.0
 pycparser==2.22 ; platform_python_implementation != 'PyPy'
