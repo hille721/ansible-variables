@@ -5,7 +5,7 @@
 
 ### Features
 
-* ansible-core 2.18 ([#97](https://github.com/hille721/ansible-variables/issues/97)) ([1ab8f5e](https://github.com/hille721/ansible-variables/commit/1ab8f5e89bf7090d50c8c457b5e6ba0c5e5a68ef))
+* ansible-core 2.18 ([#97](https://github.com/hille721/ansible-variables/issues/97)) ([948b920](https://github.com/hille721/ansible-variables/commit/948b920937fcea53b7e9acc2369039e59aa24dc2))
 
 ## [0.7.3](https://github.com/hille721/ansible-variables/compare/v0.7.2...v0.7.3) (2024-09-17)
 
