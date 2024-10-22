@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.8.0](https://github.com/hille721/ansible-variables/compare/v0.7.3...v0.8.0) (2024-10-19)
+
+
+### Features
+
+* ansible-core 2.18 ([#97](https://github.com/hille721/ansible-variables/issues/97)) ([948b920](https://github.com/hille721/ansible-variables/commit/948b920937fcea53b7e9acc2369039e59aa24dc2))
+
 ## [0.8.0](https://github.com/hille721/ansible-variables/compare/v0.7.3...v0.8.0) (2024-09-30)
 
 
