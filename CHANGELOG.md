@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.8.1](https://github.com/hille721/ansible-variables/compare/v0.8.0...v0.8.1) (2024-11-02)
+
+
+### Miscellaneous Chores
+
+* **deps:** bump coactions/dynamic-matrix from 3 to 4 ([#104](https://github.com/hille721/ansible-variables/issues/104)) ([f7e5124](https://github.com/hille721/ansible-variables/commit/f7e51248634b363d23e44d4caedfc1478ed51af4))
+
 ## [0.8.0](https://github.com/hille721/ansible-variables/compare/v0.7.3...v0.8.0) (2024-10-19)
 
 
