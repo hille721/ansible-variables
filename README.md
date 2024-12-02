@@ -94,7 +94,7 @@ as it uses the same methods as Ansible to get the variable precedence.
 
 ## Credits
 
-- the screenshots used  in this README where created with [termshot](https://github.com/homeport/termshot)
+- the screenshots used in this README where created with [termshot](https://github.com/homeport/termshot)
 
 ## License
 
