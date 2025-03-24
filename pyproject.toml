@@ -82,7 +82,7 @@ line-length = 120
 
 [tool.ruff.lint]
 select = [
-    # "ANN", # TODO: make usage of Type annotations
+    # "ANN", # make usage of Type annotations
     "FURB",
     "F",
     "E",

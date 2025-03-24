@@ -27,6 +27,8 @@ jobs:
         uses: coactions/dynamic-matrix@v4
         with:
           skip_explode: 1 # do not generating implicit pyXY jobs
+          platforms: linux, macos
+          macos: minmax
           other_names: |
             py38-2.11
             py38-2.12
@@ -78,5 +80,6 @@ jobs:
       - name: Install dev dependencies
         run: |
           uv sync --only-group dev
+          export PATH=.venv/bin:$PATH
 
       - run: ${{ matrix.command }}
