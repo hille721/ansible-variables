@@ -51,6 +51,16 @@ Changelog = "https://github.com/hille721/ansible-variables/blob/master/CHANGELOG
 [project.scripts]
 ansible-variables = "ansible_variables.cli.variables:main"
 
+[dependency-groups]
+dev = [
+    "mdformat>=0.7.17",
+    "pylint>=3.2.7",
+    "pytest>=8.3.5",
+    "ruff>=0.11.2",
+    "tox>=4.24.2",
+    "tox-uv>=1.13.1",
+]
+
 [tool.setuptools]
 include-package-data = true
 
@@ -72,26 +82,22 @@ line-length = 120
 
 [tool.ruff.lint]
 select = [
-    # Pyflakes
+    # "ANN", # TODO: make usage of Type annotations
+    "FURB",
     "F",
-    # Pycodestyle
     "E",
     "W",
-    # isort
     "I",
-    # pylint
-    "PLE", "PLW"
+    "PLE",
+    "PLW",
+    "RUF",
+    "S",
+    "UP",
+    ]
+ignore = [
+    "S101", # use of assert detected
+    "UP031" # disable "Use format specifiers instead of percent format"
     ]
 
 [tool.ruff.lint.isort]
 known-first-party = ["ansible_variables"]
-
-[tool.uv]
-dev-dependencies = [
-  "mdformat>=0.7.17",
-  "pylint>=3.2.7",
-  "pytest >=8.1.1,<9",
-  "ruff>=0.6.5",
-  "tox-uv>=1.11.3",
-  "tox>=4.18.1",
-]

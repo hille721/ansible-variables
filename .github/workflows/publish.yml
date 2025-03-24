@@ -26,7 +26,8 @@ jobs:
       - name: Install uv
         uses: astral-sh/setup-uv@v5
         with:
-          version: "0.4.10"
+          version: "0.6.9"
+          enable-cache: false
 
       - name: "Set up Python"
         uses: actions/setup-python@v5 # faster than using uv to install Python (see https://docs.astral.sh/uv/guides/integration/github/#setting-up-python)
