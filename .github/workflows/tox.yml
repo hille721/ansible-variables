@@ -52,8 +52,10 @@ jobs:
             py312-2.16
             py312-2.17
             py312-2.18
-            py312-2.18-macos:tox -e py312-2.18
             py312-devel
+            py313-2.18
+            py313-2.18-macos:tox -e py313-2.18
+            py313-devel
 
   build:
     name: ${{ matrix.name }}
