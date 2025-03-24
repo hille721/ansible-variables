@@ -78,8 +78,6 @@ jobs:
           python-version: ${{ matrix.python_version }}
 
       - name: Install dev dependencies
-        run: |
-          uv sync --only-group dev
-          export PATH=.venv/bin:$PATH
+        run: uv sync --only-group dev
 
-      - run: ${{ matrix.command }}
+      - run: PATH=.venv/bin:$PATH ${{ matrix.command }}
