@@ -61,6 +61,7 @@ jobs:
     needs: pre
     strategy:
       matrix: ${{ fromJson(needs.pre.outputs.matrix) }}
+      fail-fast: false
 
     steps:
       - uses: actions/checkout@v4
