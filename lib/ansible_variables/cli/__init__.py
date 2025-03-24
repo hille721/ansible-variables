@@ -1,3 +1,4 @@
+# ruff: noqa
 import errno
 import sys
 import traceback
@@ -87,7 +88,7 @@ class CLI(ACLI):
                 raise
             have_cli_options = bool(context.CLIARGS)
             display.error("Unexpected Exception, this is probably a bug: %s" % to_text(exc), wrap_text=False)
-            if not have_cli_options or have_cli_options and context.CLIARGS["verbosity"] > 2:
+            if not have_cli_options or (have_cli_options and context.CLIARGS["verbosity"] > 2):
                 log_only = False
                 if hasattr(exc, "orig_exc"):
                     display.vvv("\nexception type: %s" % to_text(type(exc.orig_exc)))

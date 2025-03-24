@@ -27,6 +27,8 @@ jobs:
         uses: coactions/dynamic-matrix@v4
         with:
           skip_explode: 1 # do not generating implicit pyXY jobs
+          platforms: linux, macos
+          macos: minmax
           other_names: |
             py38-2.11
             py38-2.12
@@ -68,17 +70,14 @@ jobs:
       - name: Install uv
         uses: astral-sh/setup-uv@v5
         with:
-          version: "0.4.10"
+          version: "0.6.9"
 
       - name: Set up python ${{ matrix.python_version }}
         uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python_version }}
 
-      - name: Install tox
-        # will be easier as soon as uv provides the option to only install dev dependencies
-        # https://github.com/astral-sh/uv/issues/7255
-        run: |
-          uv pip install --system tox-uv
+      - name: Install dev dependencies
+        run: uv sync --only-group dev
 
-      - run: ${{ matrix.command }}
+      - run: PATH=.venv/bin:$PATH ${{ matrix.command }}
