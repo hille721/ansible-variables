@@ -14,12 +14,6 @@
 
 * **deps:** bump coactions/dynamic-matrix from 3 to 4 ([#104](https://github.com/hille721/ansible-variables/issues/104)) ([f7e5124](https://github.com/hille721/ansible-variables/commit/f7e51248634b363d23e44d4caedfc1478ed51af4))
 
-## [0.8.0](https://github.com/hille721/ansible-variables/compare/v0.7.3...v0.8.0) (2024-10-19)
-
-
-### Features
-
-* ansible-core 2.18 ([#97](https://github.com/hille721/ansible-variables/issues/97)) ([948b920](https://github.com/hille721/ansible-variables/commit/948b920937fcea53b7e9acc2369039e59aa24dc2))
 
 ## [0.8.0](https://github.com/hille721/ansible-variables/compare/v0.7.3...v0.8.0) (2024-09-30)
 
