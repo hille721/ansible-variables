@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.9.1](https://github.com/hille721/ansible-variables/compare/v0.9.0...v0.9.1) (2025-03-24)
+
+
+### Bug Fixes
+
+* add Python 3.13 to test matrix ([#120](https://github.com/hille721/ansible-variables/issues/120)) ([389a17f](https://github.com/hille721/ansible-variables/commit/389a17f3ed38cc1a57e81dc1f1c9cd1b2c3186f2))
+
 ## [0.9.0](https://github.com/hille721/ansible-variables/compare/v0.8.1...v0.9.0) (2025-03-18)
 
 
