@@ -27,9 +27,8 @@ jobs:
         uses: coactions/dynamic-matrix@v4
         with:
           skip_explode: 1 # do not generating implicit pyXY jobs
-          platforms: linux, macos
-          macos: minmax
           other_names: |
+            py38-2.11-macos:tox -e py38-2.11
             py38-2.11
             py38-2.12
             py38-2.13
@@ -53,6 +52,7 @@ jobs:
             py312-2.16
             py312-2.17
             py312-2.18
+            py312-2.18-macos:tox -e py312-2.18
             py312-devel
 
   build:
@@ -61,6 +61,7 @@ jobs:
     needs: pre
     strategy:
       matrix: ${{ fromJson(needs.pre.outputs.matrix) }}
+      fail-fast: false
 
     steps:
       - uses: actions/checkout@v4
