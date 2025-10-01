@@ -30,7 +30,7 @@ jobs:
           enable-cache: false
 
       - name: "Set up Python"
-        uses: actions/setup-python@v5 # faster than using uv to install Python (see https://docs.astral.sh/uv/guides/integration/github/#setting-up-python)
+        uses: actions/setup-python@v6 # faster than using uv to install Python (see https://docs.astral.sh/uv/guides/integration/github/#setting-up-python)
         with:
           python-version-file: "pyproject.toml"
 
