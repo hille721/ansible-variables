@@ -24,7 +24,7 @@ jobs:
     steps:
       - name: Determine matrix
         id: generate_matrix
-        uses: coactions/dynamic-matrix@v4
+        uses: ansible/actions/matrix@v3
         with:
           skip_explode: 1 # do not generating implicit pyXY jobs
           other_names: |
