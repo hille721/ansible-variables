@@ -24,7 +24,7 @@ jobs:
     steps:
       - name: Determine matrix
         id: generate_matrix
-        uses: coactions/dynamic-matrix@v4
+        uses: ansible/actions/matrix@v0
         with:
           skip_explode: 1 # do not generating implicit pyXY jobs
           other_names: |
@@ -48,14 +48,11 @@ jobs:
             py311-2.16
             py311-2.17
             py311-2.18
-            py311-devel
             py312-2.16
             py312-2.17
             py312-2.18
-            py312-devel
             py313-2.18
             py313-2.18-macos:tox -e py313-2.18
-            py313-devel
 
   build:
     name: ${{ matrix.name }}
@@ -73,7 +70,7 @@ jobs:
       - name: Install uv
         uses: astral-sh/setup-uv@v6
         with:
-          version: "0.6.9"
+          version: "0.8.14"
 
       - name: Set up python ${{ matrix.python_version }}
         uses: actions/setup-python@v5
