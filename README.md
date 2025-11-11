@@ -5,6 +5,8 @@
 [![pre-commit][pre-commit-badge]][pre-commit-link]
 [![Ruff][ruff-badge]][ruff-link]
 
+**This CLI is currently broken with ansible-core>=2.19 (see also <https://github.com/hille721/ansible-variables/issues/123>)**
+
 The Ansible inventory provides a very powerful framework to declare variables in a hierarchical manner.
 There a lof of different places where a variable can be defined (inventory, host_vars, groups_vars, ...)
 and Ansible will merge them in a specific order
@@ -20,7 +22,7 @@ and Ansible will merge them in a specific order
 
 Based on one host it will return a list with all variables, values and variable type.
 
-Tested with `ansible-core` 2.11 - 2.18.
+Tested and working with `ansible-core` 2.11 - 2.18.
 
 ## Installation
 
