@@ -27,7 +27,7 @@ repos:
       - id: typos
 
   - repo: https://github.com/jackdewinter/pymarkdown
-    rev: v0.9.34
+    rev: v0.9.35
     hooks:
       - id: pymarkdown
         args:
@@ -57,7 +57,7 @@ repos:
           - pytest
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.14.10
+    rev: v0.14.14
     hooks:
       - id: ruff
         args:
@@ -66,6 +66,6 @@ repos:
       - id: ruff-format
 
   - repo: https://github.com/astral-sh/uv-pre-commit
-    rev: 0.9.21
+    rev: 0.9.28
     hooks:
       - id: uv-lock
