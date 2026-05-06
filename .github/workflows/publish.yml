@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # release please
-      - uses: googleapis/release-please-action@v4
+      - uses: googleapis/release-please-action@v5
         id: release
         with:
           release-type: python
